@@ -18,9 +18,10 @@ class UsuarioController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        //validacion de los datos
+        dd($request->all());
     }
 
     /**

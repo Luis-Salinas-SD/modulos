@@ -6,10 +6,11 @@
 
 @section('content')
     <div class="container mt-5">
-        <form>
+        <form action="{{ route('crearUsuario') }}" method="POST">
+            @csrf
             <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" name="nombre">
             </div>
             <div class="mb-3">
                 <label for="correo" class="form-label">Correo</label>

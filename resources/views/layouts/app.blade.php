@@ -45,7 +45,7 @@
                             Usuarios
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="oficinasDropdownMenu">
-                            <li><a class="dropdown-item" href="#">Agregar Usuario</a></li>
+                            <li><a class="dropdown-item" href="{{ route('usuarios')}}">Agregar Usuario</a></li>
                             <li><a class="dropdown-item" href="#">Gestión</a></li>
                         </ul>
                     </li>
