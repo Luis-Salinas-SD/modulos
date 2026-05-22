@@ -22,6 +22,13 @@ class UsuarioController extends Controller
     {
         //validacion de los datos
         dd($request->all());
+        /* $request->validate([
+            'nombre' => 'required|string|max:255',
+            'email' => 'required|email|unique:usuarios,email',
+            'password' => 'required|string|min:8|confirmed',
+            'tipo_usuario' => 'required|string|in:admin,user',
+            'id_modulo' => 'required|integer|exists:modulos,id_modulo',
+        ]); */
     }
 
     /**
