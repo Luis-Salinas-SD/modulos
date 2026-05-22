@@ -1,16 +1,26 @@
-@extends('layouts/app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('title')
-    Bienvenido a Mi App Laravel
-@endsection
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Mi App Laravel')</title>
 
-@section('content')
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tu CSS personalizado (opcional) -->
+    @stack('styles')
+</head>
+
+<body>
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Inicio de sesión</h3>
+                        <h3>Inicio de sesión modulos</h3>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('loginAuth') }}" method="POST">
@@ -30,4 +40,12 @@
             </div>
         </div>
     </div>
-@endsection
+
+    <!-- Bootstrap JS Bundle (incluye Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Tu JS personalizado (opcional) -->
+    @stack('scripts')
+</body>
+
+</html>

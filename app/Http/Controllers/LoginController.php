@@ -12,13 +12,10 @@ class LoginController extends Controller
      */
     public function index()
     {
-        //
         return view('login');
     }
 
-    /**
-     * login user
-     */
+    //! Validacion del usuario
     public function login(Request $request)
     {
         //validate the request
@@ -30,10 +27,20 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            dd('Login successful');
-        }else {
-            dd('Login failed');
+
+            //regenerar el toke csrf para evitar ataques de tipo CSRF
+            request()->session()->regenerate();
+
+            if (auth()->user()->tipo_usuario == 1) {
+                //echo 'Inicio de sesión exitoso para admin';
+                return redirect()->route('profileAdmin')->with('success', 'Inicio de sesión exitoso');
+            } else if (auth()->user()->tipo_usuario == 2) {
+                //echo 'Inicio de sesión exitoso para user';
+                return redirect()->route('profileUser')->with('success', 'Inicio de sesión exitoso');
+            }
+        } else {
+            //return back()->withErrors(['email' => 'Credenciales inválidas'])->withInput();
+            echo 'Credenciales inválidas';
         }
     }
 

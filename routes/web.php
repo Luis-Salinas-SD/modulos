@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 
 Route::controller(LoginController::class)->group(
     function () {
@@ -13,8 +14,17 @@ Route::controller(LoginController::class)->group(
     }
 );
 
+//% Ruta para mostrar el perfil - profile
+    Route::controller(ProfileController::class)->group(
+        function () {
+            Route::get('/profilead', 'indexAdmin')->name('profileAdmin');
+            Route::get('/profileus', 'indexUser')->name('profileUser');
+
+        }
+    );
+
 Route::controller(UsuarioController::class)->group(function () {
-    Route::get('/usuarios', 'index')->name('usuarios.index');
+    Route::get('/usuarios', 'index')->name('usuarios');
     Route::get('/usuarios/create', 'create')->name('usuarios.create');
     Route::post('/usuarios', 'store')->name('usuarios.store');
     Route::get('/usuarios/{id}', 'show')->name('usuarios.show');

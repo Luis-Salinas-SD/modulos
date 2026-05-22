@@ -11,8 +11,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
-        dd('Hola desde el index de UsuarioController');
+        //Formulario para mostrar el listado de usuarios
+        return view('users');
     }
 
     /**
