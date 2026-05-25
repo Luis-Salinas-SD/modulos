@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Office extends Model
 {
     //
-    protected $table = 'oficinas';
+    protected $table = 'oficina';
     protected $primaryKey = 'id_oficina';
     protected $fillable = [
-        'nombre',
+        'oficina',
         'estado',
     ];
 

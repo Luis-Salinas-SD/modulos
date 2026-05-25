@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ModuloController;
+use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ProfileController;
 
 
@@ -38,9 +39,10 @@ Route::controller(UsuarioController::class)->group(function () {
 Route::controller(ModuloController::class)->group(function () {
     Route::GET('/modulos', 'index')->name('modulos');
     Route::POST('/modulos/create', 'create')->name('crearModulo');
-    /* Route::post('/usuarios', 'store')->name('usuarios.store');
-    Route::get('/usuarios/{id}', 'show')->name('usuarios.show');
-    Route::get('/usuarios/{id}/edit', 'edit')->name('usuarios.edit');
-    Route::put('/usuarios/{id}', 'update')->name('usuarios.update');
-    Route::delete('/usuarios/{id}', 'destroy')->name('usuarios.destroy'); */
 });
+
+Route::controller(OfficeController::class)->group(function () {
+    Route::GET('/oficinas', 'index')->name('oficinas');
+    Route::POST('/oficinas/create', 'create')->name('crearOficina');
+});
+

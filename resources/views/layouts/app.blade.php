@@ -34,7 +34,7 @@
                             Oficinas
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="oficinasDropdownMenu">
-                            <li><a class="dropdown-item" href="#">Agregar Oficina</a></li>
+                            <li><a class="dropdown-item" href="{{ route('oficinas') }}">Agregar Oficina</a></li>
                             <li><a class="dropdown-item" href="#">Asignar oficina</a></li>
                             <li><a class="dropdown-item" href="#">Gestión</a></li>
                         </ul>
@@ -45,7 +45,7 @@
                             Usuarios
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="oficinasDropdownMenu">
-                            <li><a class="dropdown-item" href="{{ route('usuarios')}}">Agregar Usuario</a></li>
+                            <li><a class="dropdown-item" href="{{ route('usuarios') }}">Agregar Usuario</a></li>
                             <li><a class="dropdown-item" href="#">Gestión</a></li>
                         </ul>
                     </li>
@@ -55,7 +55,7 @@
                             Modulos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="oficinasDropdownMenu">
-                            <li><a class="dropdown-item" href="#">Agregar Modulo</a></li>
+                            <li><a class="dropdown-item" href="{{ route('modulos') }}">Agregar Modulo</a></li>
                             <li><a class="dropdown-item" href="#">Gestión</a></li>
                         </ul>
                     </li>

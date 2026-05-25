@@ -2,33 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Module;
+
+
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra el formulario para crear un nuevo usuario
      */
     public function index()
     {
-        //Formulario para mostrar el listado de usuarios
-        return view('users');
+
+        //Mandar a llamar mis registros de modulos para mostrarlos en el formulario de creación de usuarios.
+        $modulos = Module::all();
+
+        return view('users', compact('modulos'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Hace una inserción de un nuevo usuario en la base de datos
      */
     public function create(Request $request)
     {
+
         //validacion de los datos
-        dd($request->all());
-        /* $request->validate([
+        $request->validate([
             'nombre' => 'required|string|max:255',
             'email' => 'required|email|unique:usuarios,email',
-            'password' => 'required|string|min:8|confirmed',
-            'tipo_usuario' => 'required|string|in:admin,user',
-            'id_modulo' => 'required|integer|exists:modulos,id_modulo',
-        ]); */
+            'password' => 'required|string|min:6',
+            'tipo_usuario' => 'required|integer|in:1,2',
+            'id_modulo' => 'required|integer',
+        ]);
+
+        //Inserción del nuevo usuario en la base de datos en la tabla usuarios.
+        User::create([
+            'nombre' => $request->input('nombre'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'tipo_usuario' => $request->input('tipo_usuario'),
+            'id_modulo' => $request->input('id_modulo'),
+        ]);
+
+        echo "Usuario asignado con éxito";
     }
 
     /**
