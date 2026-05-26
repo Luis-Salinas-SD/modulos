@@ -35,7 +35,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="oficinasDropdownMenu">
                             <li><a class="dropdown-item" href="{{ route('oficinas') }}">Agregar Oficina</a></li>
-                            <li><a class="dropdown-item" href="#">Asignar oficina</a></li>
+                            <li><a class="dropdown-item" href=" {{ route('asignarOficina') }} ">Asignar oficina</a></li>
                             <li><a class="dropdown-item" href="#">Gestión</a></li>
                         </ul>
                     </li>

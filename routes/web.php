@@ -6,6 +6,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ModuloController;
 use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\AsignOfficeController;
 use App\Http\Controllers\ProfileController;
 
 
@@ -18,13 +19,12 @@ Route::controller(LoginController::class)->group(
 );
 
 //% Ruta para mostrar el perfil - profile
-    Route::controller(ProfileController::class)->group(
-        function () {
-            Route::get('/profilead', 'indexAdmin')->name('profileAdmin');
-            Route::get('/profileus', 'indexUser')->name('profileUser');
-
-        }
-    );
+Route::controller(ProfileController::class)->group(
+    function () {
+        Route::get('/profilead', 'indexAdmin')->name('profileAdmin');
+        Route::get('/profileus', 'indexUser')->name('profileUser');
+    }
+);
 
 Route::controller(UsuarioController::class)->group(function () {
     Route::GET('/usuarios', 'index')->name('usuarios');
@@ -46,3 +46,7 @@ Route::controller(OfficeController::class)->group(function () {
     Route::POST('/oficinas/create', 'create')->name('crearOficina');
 });
 
+Route::controller(AsignOfficeController::class)->group(function () {
+    Route::GET('/asignacion', 'index')->name('asignarOficina');
+    Route::POST('/asigOficina/create', 'create')->name('asignarOficinaCreate');
+});

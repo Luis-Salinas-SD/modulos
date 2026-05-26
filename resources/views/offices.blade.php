@@ -1,11 +1,19 @@
 @extends('layouts/app')
 
 @section('title')
-    Oficinas
+Oficinas
 @endsection
 
 @section('content')
-    <div class="container mt-5">
+<div class="container mt-5">
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Agregar Oficina</h5>
+        </div>
+    </div>
+
+    <div class="card p-3">
         <form action="{{ route('crearOficina') }}" method="POST">
             @csrf
 
@@ -17,4 +25,6 @@
             <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
     </div>
+
+</div>
 @endsection
